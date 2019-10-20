@@ -1,0 +1,58 @@
+﻿@model RepositoryDesignPatternMvc.Models.Employee
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="alert alert-danger">
+    <h6>Are you sure you want to delete this?</h6>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="text-uppercase"> Delete Emplyee Record</h5>
+    </div>
+    <div class="card-body">
+        <table class="table table-borderless">
+            <tr>
+                <td>
+                    <b>@Html.DisplayNameFor(m => m.FirstName)</b>
+                </td>
+                <td>@Html.DisplayFor(m => m.FirstName)</td>
+                <td>
+                    <b>@Html.DisplayNameFor(m => m.LastName)</b>
+                </td>
+                <td>@Html.DisplayFor(m => m.LastName)</td>
+            </tr>
+            <tr>
+                <td>
+                    <b>@Html.DisplayNameFor(m => m.Age)</b>
+                </td>
+                <td>@Html.DisplayFor(m => m.Age)</td>
+                <td>
+                    <b>@Html.DisplayNameFor(m => m.Position)</b>
+                </td>
+                <td>@Html.DisplayFor(m => m.Position)</td>
+            </tr>
+            <tr>
+                <td>
+                    <b>@Html.DisplayNameFor(m => m.Office)</b>
+                </td>
+                <td>@Html.DisplayFor(m => m.Office)</td>
+                <td>
+                    <b>@Html.DisplayNameFor(m => m.Salary)</b>
+                </td>
+                <td>@Html.DisplayFor(m => m.Salary)</td>
+            </tr>
+        </table>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-danger btn-sm rounded-0" /> 
+                @Html.ActionLink("Back to List", "Index","",new { @class="btn btn-sm btn-primary rounded-0"})
+            </div>
+        }
+    </div>
+</div>
+

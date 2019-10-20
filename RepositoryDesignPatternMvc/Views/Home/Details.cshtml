@@ -1,0 +1,50 @@
+﻿@model RepositoryDesignPatternMvc.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="card">
+    <div class="card-header bg-dark text-white">
+        <h5 class="text-uppercase">Employee Details</h5>
+    </div>
+    <div class="card-body">
+        <table class="table table-borderless">
+            <tr>
+                <td>
+                    <b>@Html.DisplayNameFor(m => m.FirstName)</b>
+                </td>
+                <td>@Html.DisplayFor(m => m.FirstName)</td>
+                <td>
+                    <b>@Html.DisplayNameFor(m => m.LastName)</b>
+                </td>
+                <td>@Html.DisplayFor(m => m.LastName)</td>
+            </tr>
+            <tr>
+                <td>
+                    <b>@Html.DisplayNameFor(m => m.Age)</b>
+                </td>
+                <td>@Html.DisplayFor(m => m.Age)</td>
+                <td>
+                    <b>@Html.DisplayNameFor(m => m.Position)</b>
+                </td>
+                <td>@Html.DisplayFor(m => m.Position)</td>
+            </tr>
+            <tr>
+                <td>
+                    <b>@Html.DisplayNameFor(m => m.Office)</b>
+                </td>
+                <td>@Html.DisplayFor(m => m.Office)</td>
+                <td>
+                    <b>@Html.DisplayNameFor(m => m.Salary)</b>
+                </td>
+                <td>@Html.DisplayFor(m => m.Salary)</td>
+            </tr>
+        </table>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-info btn-sm rounded-0" })
+            @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-primary btn-sm rounded-0" })
+        </p>
+    </div>
+</div>
+

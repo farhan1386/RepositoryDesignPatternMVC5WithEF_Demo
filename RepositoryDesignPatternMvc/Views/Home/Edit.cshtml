@@ -1,30 +1,30 @@
 ﻿@model RepositoryDesignPatternMvc.Models.Employee
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
 }
 
 <div class="card">
     <div class="card-header bg-dark text-white">
-        <h5>Create New</h5>
+        <h4 class="text-uppercase">Edit Employee</h4>
     </div>
     <div class="card-body">
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-
+            @Html.HiddenFor(m => m.Id)
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         @Html.LabelFor(m => m.FirstName)
-                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                        @Html.EditorFor(m => m.FirstName, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(m => m.FirstName)
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         @Html.LabelFor(m => m.LastName)
-                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                        @Html.EditorFor(m => m.LastName, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(m => m.LastName)
                     </div>
                 </div>
@@ -33,14 +33,14 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         @Html.LabelFor(m => m.Age)
-                        @Html.TextBoxFor(m => m.Age, new { @class = "form-control" })
+                        @Html.EditorFor(m => m.Age, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(m => m.Age)
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         @Html.LabelFor(m => m.Position)
-                        @Html.TextBoxFor(m => m.Position, new { @class = "form-control" })
+                        @Html.EditorFor(m => m.Position, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(m => m.Position)
                     </div>
                 </div>
@@ -49,23 +49,22 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         @Html.LabelFor(m => m.Office)
-                        @Html.TextBoxFor(m => m.Office, new { @class = "form-control" })
+                        @Html.EditorFor(m => m.Office, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(m => m.Office)
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         @Html.LabelFor(m => m.Salary)
-                        @Html.TextBoxFor(m => m.Salary, new { @class = "form-control" })
+                        @Html.EditorFor(m => m.Salary, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(m => m.Salary)
                     </div>
                 </div>
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary btn-sm rounded-0">Update</button>
             </div>
         }
     </div>
 </div>
-
 

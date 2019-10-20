@@ -22,6 +22,7 @@ namespace RepositoryDesignPatternMvc.Controllers
         {
             _employeeRepository = employeeRepository;
         }
+
         public ActionResult Index()
         {
             var employee = _employeeRepository.GetEmployees();

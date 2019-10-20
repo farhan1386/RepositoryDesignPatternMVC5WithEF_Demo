@@ -1,7 +1,40 @@
-﻿
+﻿@model IEnumerable<RepositoryDesignPatternMvc.Models.Employee>
+
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h3 class="text-center text-uppercase">List of Employee</h3>
+<a href="@Url.Action("Create","Home")" class="btn btn-sm btn-primary rounded-0" style="margin-bottom:15px;"><i class="fa fa-plus-circle"></i> Add New</a>
+<table class="table table-bordered">
+    <thead class="thead-dark text-white">
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.FirstName)</th>
+            <th>@Html.DisplayNameFor(m => m.LastName)</th>
+            <th>@Html.DisplayNameFor(m => m.Age)</th>
+            <th>@Html.DisplayNameFor(m => m.Position)</th>
+            <th>@Html.DisplayNameFor(m => m.Office)</th>
+            <th>@Html.DisplayNameFor(m => m.Salary)</th>
+            <th>Action(s)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@emp.FirstName</td>
+                <td>@emp.LastName</td>
+                <td>@emp.Age</td>
+                <td>@emp.Position</td>
+                <td>@emp.Office</td>
+                <td>@emp.Salary</td>
+                <td>
+                    <a href="@Url.Action("Details","Home",new { id = emp.Id })" class="btn btn-sm btn-primary rounded-0 text-white"><i class="fa fa-eye"></i></a>
+                    <a href="@Url.Action("Edit","Home",new { id = emp.Id })" class="btn btn-sm btn-info rounded-0 text-white"><i class="fa fa-pencil-square"></i></a>
+                    <a href="@Url.Action("Delete","Home",new { id = emp.Id })" class="btn btn-sm btn-danger rounded-0 text-white"><i class="fa fa-trash-o"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
 

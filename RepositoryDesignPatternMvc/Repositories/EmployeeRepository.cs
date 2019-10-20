@@ -14,6 +14,7 @@ namespace RepositoryDesignPatternMvc.Repositories
         {
             _dbContext = new EmployeeContext();
         }
+
         public EmployeeRepository(EmployeeContext context)
         {
             _dbContext = context;
@@ -24,7 +25,7 @@ namespace RepositoryDesignPatternMvc.Repositories
             return _dbContext.Employees.ToList();
         }
 
-        public Employee GetEmployeeById(int id)
+        public Employee GetEmployeeById(int? id)
         {
             return _dbContext.Employees.Find(id);
         }
@@ -39,7 +40,7 @@ namespace RepositoryDesignPatternMvc.Repositories
             _dbContext.Entry(employee).State = EntityState.Modified;
         }
 
-        public void DeleteEmployee(int id)
+        public void DeleteEmployee(int? id)
         {
             var employee = _dbContext.Employees.Find(id);
             if (employee != null) _dbContext.Employees.Remove(employee);
@@ -63,6 +64,7 @@ namespace RepositoryDesignPatternMvc.Repositories
             }
             this._disposed = true;
         }
+
         public void Dispose()
         {
             Dispose(true);
